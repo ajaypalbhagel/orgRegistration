@@ -14,7 +14,9 @@ async function userRegistration(request) {
     let error = false
     var responseData = ''
     let errorMsg = ''
+    // converting hash format password
     let hash = await bcrypt.hash(request.password, 10)
+    // checking email already exits or not
     await User.find({ email: request.email })
         .exec()
         .then(async userResult => {
@@ -30,6 +32,7 @@ async function userRegistration(request) {
                     location: request.location,
                     name: request.name,
                 })
+                // inserting user data
                 await user.save().then(result => {
                     responseData = 'user successfully registered'
                 })
@@ -47,6 +50,7 @@ async function userLogin(request) {
     const serverUniqueId = uuidv1()
     const clientId = request.client_id
 
+    // feching user data corresponding to user email
     await User.find({ email: request.email })
         .exec()
         .then(async user => {
@@ -54,6 +58,7 @@ async function userLogin(request) {
                 error = true
                 errorMsg = 'username password incorrect'
             } else {
+                // compare user password
                 let result = await bcrypt.compare(request.password, user[0].password)
                 if (!result) {
                     error = true
@@ -76,6 +81,7 @@ async function userLogin(request) {
                         server_unique_id: serverUniqueId,
                         refresh_token: refreshToken
                     })
+                    // inserting user login session data in db
                     await UserLoginSession.save().then(async result => { })
                     responseData = {
                         message: 'Auth Succesfull',
