@@ -1,7 +1,7 @@
 # orgRegistration
 
 # clone repo
-git clone 
+git clone https://github.com/ajaypalbhagel/orgRegistration.git
 
 # go to orgRegistration repo
 npm i
