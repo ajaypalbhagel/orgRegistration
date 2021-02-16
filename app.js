@@ -44,11 +44,11 @@ app.use((req,res,next)=>
 app.use(cors());
 app.use('/user',userRoutes)
 
-app.use('/home',checkAuth,(req,res)=>{
+app.get('/home',checkAuth,(req,res)=>{
     var htmlText = fs.readFileSync('./home.html', 'utf8');
     res.send(htmlText);
 })
-app.use('/',(req,res)=>{
+app.get('/',(req,res)=>{
     var htmlText = fs.readFileSync('./index.html', 'utf8');
     res.send(htmlText);
 })
