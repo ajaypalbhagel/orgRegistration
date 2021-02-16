@@ -46,8 +46,8 @@ async function userLogin(request) {
     let error = false
     var responseData = {}
     let errorMsg = ''
-    const uuidv1 = require('uuid/v1');
-    const serverUniqueId = uuidv1()
+    const { v4: uuidv4 } = require('uuid');
+    const serverUniqueId = uuidv4()
     const clientId = request.client_id
 
     // feching user data corresponding to user email
