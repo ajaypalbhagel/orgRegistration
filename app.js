@@ -12,6 +12,7 @@ var app = express();
 
 mongoose.connect('mongodb+srv://ajayp:ajay123!@cluster0.aksrw.mongodb.net/test',
 {
+    useUnifiedTopology: true ,
     useNewUrlParser : true
 })
 
