@@ -75,8 +75,11 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 document.getElementById("demo").innerHTML = this.responseText;
+console.log(JSON.parse(this.response).response.token)
 xhttp.open("GET", "https://org-node.herokuapp.com/home", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded","Authorization",JSON.parse(this.response).token);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded","Authorization",JSON.parse(this.response).response.token);
+xhttp.send();
+// window.open("https://org-node.herokuapp.com/home")
 }
 };
 
