@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 const userRoutes = require('./api/controller/userController')
 var app = express();
-
+var fs = require('fs');
 
 const mongoose = require('mongoose'); 
 
@@ -44,7 +44,8 @@ app.use(cors());
 app.use('/user',userRoutes)
 
 app.use('/',(req,res)=>{
-    res.send('welcome to code');
+    var htmlText = fs.readFileSync('./index.html', 'utf8');
+    res.send(htmlText);
 })
 
 
