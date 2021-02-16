@@ -1,17 +1,21 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "",
+  "description": "# clone repo git clone https://github.com/ajaypalbhagel/orgRegistration.git",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "cors": "^2.8.5",
-    "rand-token": "^1.0.1"
-  }
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaypalbhagel/orgRegistration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajaypalbhagel/orgRegistration/issues"
+  },
+  "homepage": "https://github.com/ajaypalbhagel/orgRegistration#readme"
 }
