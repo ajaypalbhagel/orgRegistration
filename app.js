@@ -4,6 +4,7 @@ var cors = require('cors');
 const userRoutes = require('./api/controller/userController')
 var app = express();
 var fs = require('fs');
+const checkAuth = require('./api/middleware/checkAuth')
 
 const mongoose = require('mongoose'); 
 
@@ -43,7 +44,7 @@ app.use((req,res,next)=>
 app.use(cors());
 app.use('/user',userRoutes)
 
-app.use('/home',(req,res)=>{
+app.use('/home',checkAuth,(req,res)=>{
     var htmlText = fs.readFileSync('./home.html', 'utf8');
     res.send(htmlText);
 })

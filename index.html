@@ -1,121 +1,121 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <button onclick="loginPage(false)">SignUP</button>
-    <button onclick="loginPage(true)">Login</button>
+<button onclick="loginPage(false)">SignUP</button>
+<button onclick="loginPage(true)">Login</button>
 
 
 <table id="signuPID">
-    
-    <tr>
-        <td>Name</td>
-        <td><input type="text" id="nameID" required></td>
-    </tr>
-    <tr>
-        <td>email</td>
-        <td><input type="text" id="emailID" required></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="text" id="passID" required></td>
-    </tr>
-    <tr>
-        <td>Contact No</td>
-        <td><input type="text" id="contactID" required></td>
-    </tr>
-    <tr>
-        <td>Location</td>
-        <td><input type="text" id="locationID" required></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><button type="button"  onclick="loadDoc()">SignUp</button></td>
-    </tr>
+
+<tr>
+<td>Name</td>
+<td><input type="text" id="nameID" required></td>
+</tr>
+<tr>
+<td>email</td>
+<td><input type="text" id="emailID" required></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="text" id="passID" required></td>
+</tr>
+<tr>
+<td>Contact No</td>
+<td><input type="text" id="contactID" required></td>
+</tr>
+<tr>
+<td>Location</td>
+<td><input type="text" id="locationID" required></td>
+</tr>
+<tr>
+<td></td>
+<td><button type="button" onclick="loadDoc()">SignUp</button></td>
+</tr>
 </table>
 <table id="loginID" style="display: none;">
-    
-    <tr>
-        <td>email</td>
-        <td><input type="text" id="LemailID" required></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="text" id="LpassID" required></td>
-    </tr>
-    
-    <tr>
-        <td></td>
-        <td><button type="button"  onclick="loginFunction()">SignUp</button></td>
-    </tr>
+
+<tr>
+<td>email</td>
+<td><input type="text" id="LemailID" required></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="text" id="LpassID" required></td>
+</tr>
+
+<tr>
+<td></td>
+<td><button type="button" onclick="loginFunction()">SignUp</button></td>
+</tr>
 </table>
 
 
 
 
 <p id="demo"></p>
- 
+
 <script>
-    function loginPage(value){
-        if(value){
-            let login = document.getElementById("loginID").style.display="block";
-        let sigup = document.getElementById("signuPID").style.display="none";
-        }else{
-            let login = document.getElementById("loginID").style.display="none";
-        let sigup = document.getElementById("signuPID").style.display="block";
-        }
-        
+function loginPage(value){
+if(value){
+let login = document.getElementById("loginID").style.display="block";
+let sigup = document.getElementById("signuPID").style.display="none";
+}else{
+let login = document.getElementById("loginID").style.display="none";
+let sigup = document.getElementById("signuPID").style.display="block";
+}
+}
 
-    }
-    
-    function loginFunction() {
-    
-  let email = document.getElementById('LemailID').value
-  let password = document.getElementById('LpassID').value
-  
-    if( email && password){
-        var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  
-  xhttp.open("POST", "https://org-node.herokuapp.com/user/login", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("email="+email+"&password="+password+"&client_id="+"8d92c555-1f04-49c7-9980-38da5497b9a7");
+function loginFunction() {
 
-    }else{
-        console.log("retrun false >>>>>>>>")
-        return false;
-    }
+let email = document.getElementById('LemailID').value
+let password = document.getElementById('LpassID').value
+
+if( email && password){
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("demo").innerHTML = this.responseText;
+window.open("https://org-node.herokuapp.com/home").setRequestHeader("Authorization",JSON.parse(this.response).token)
+}
+};
+
+xhttp.open("POST", "https://org-node.herokuapp.com/user/login", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("email="+email+"&password="+password+"&client_id="+"8d92c555-1f04-49c7-9980-38da5497b9a7");
+
+}else{
+return false;
+}
 
 }
 function loadDoc() {
-    let name = document.getElementById('nameID').value
-  let email = document.getElementById('emailID').value
-  let password = document.getElementById('passID').value
-  let contact = document.getElementById('contactID').value
-  let location = document.getElementById('locationID').value
-    if(name && email && password){
-        var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  
-  xhttp.open("POST", "https://org-node.herokuapp.com/user/signup", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("email="+email+"&password="+password+"&name="+name+"&contactNo="+contact+"&location="+location);
+let name = document.getElementById('nameID').value
+let email = document.getElementById('emailID').value
+let password = document.getElementById('passID').value
 
-    }else{
-        console.log("retrun false >>>>>>>>")
-        return false;
-    }
+let contact = document.getElementById('contactID').value
+let location = document.getElementById('locationID').value
+if(name && email && password){
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("demo").innerHTML = JSON.parse(this.response).response;
+let login = document.getElementById("loginID").style.display="block";
+let sigup = document.getElementById("signuPID").style.display="none";
+}
+};
+
+xhttp.open("POST", "https://org-node.herokuapp.com/user/signup", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("email="+email+"&password="+password+"&name="+name+"&contactNo="+contact+"&location="+location);
+
+}else{
+return false;
+}
 
 }
 </script>
 
 
 </body>
-</html> 
+</html>
