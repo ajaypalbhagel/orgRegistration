@@ -27,7 +27,6 @@
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.16",
     "rand-token": "^1.0.1",
-    "stream": "0.0.2",
-    "uuid": "^8.3.2"
+    "stream": "0.0.2"
   }
 }
