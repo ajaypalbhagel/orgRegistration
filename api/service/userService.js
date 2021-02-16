@@ -7,6 +7,7 @@ var randtoken = require('rand-token')
 const userLoginSession = require("../model/userLoginSession")
 const tokenExpireTime = { expiresIn: "30m" }
 const tokenSecretKey = 'secret!@#$!@!@'
+const uuidv1 = require('uuid/v1');
 
 // user signup api service
 
@@ -46,7 +47,7 @@ async function userLogin(request) {
     let error = false
     var responseData = {}
     let errorMsg = ''
-    const uuidv1 = require('uuid/v1');
+    
     const serverUniqueId = uuidv1()
     const clientId = request.client_id
 
