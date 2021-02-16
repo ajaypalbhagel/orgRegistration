@@ -1,5 +1,9 @@
 # orgRegistration
 
+
+# Open this link on web browser
+https://org-node.herokuapp.com/
+
 # clone repo
 git clone https://github.com/ajaypalbhagel/orgRegistration.git
 
@@ -14,7 +18,7 @@ node server.js
 
 # 1) user signup
 method type = post
- url = http://localhost:3000/user/signup
+ url = http://localhost:5000/user/signup
  body parameter = {
 	"name":"ajay-user",
 	"email":"ajayp+user2@athmin.com",
@@ -26,7 +30,7 @@ method type = post
 
 # 2) user login
 method type = post
-url = http://localhost:3000/user/login
+url = http://localhost:5000/user/login
 {
 	"email":"ajayp+user2@athmin.com",
     "client_id":"8d92c555-1f04-49c7-9980-38da5497b9a7",
