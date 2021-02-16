@@ -4,7 +4,7 @@ var cors = require('cors');
 const userRoutes = require('./api/controller/userController')
 var app = express();
 var fs = require('fs');
-const checkAuth = require('./api/middleware/checkAuth')
+
 
 const mongoose = require('mongoose'); 
 
