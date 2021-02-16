@@ -42,6 +42,10 @@ app.use((req,res,next)=>
 app.use(cors());
 app.use('/user',userRoutes)
 
+app.use('/',(req,res)=>{
+    res.send('welcome to code');
+})
+
 
 app.use((req,res,next) => {
     const error = new Error("Not Found");
