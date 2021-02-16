@@ -44,7 +44,7 @@ app.use((req,res,next)=>
 app.use(cors());
 app.use('/user',userRoutes)
 
-app.post('/home',checkAuth,(req,res)=>{
+app.get('/home',checkAuth,(req,res)=>{
     var htmlText = fs.readFileSync('./home.html', 'utf8');
     res.send(htmlText);
 })
