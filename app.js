@@ -43,10 +43,15 @@ app.use((req,res,next)=>
 app.use(cors());
 app.use('/user',userRoutes)
 
+app.use('/home',(req,res)=>{
+    var htmlText = fs.readFileSync('./home.html', 'utf8');
+    res.send(htmlText);
+})
 app.use('/',(req,res)=>{
     var htmlText = fs.readFileSync('./index.html', 'utf8');
     res.send(htmlText);
 })
+
 
 
 app.use((req,res,next) => {
